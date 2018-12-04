@@ -35,7 +35,7 @@ for shift in  group_by_shift(seperated_str):
     for  sleep, wake in zip_longest(*iter_ ):
         time_asleep = int((wake[0]-sleep[0]).total_seconds() // 60)
         for i in range(sleep[0].minute , sleep[0].minute +  time_asleep):
-            guards_sleep_patterns[guard_id][i % 59] += 1
+            guards_sleep_patterns[guard_id][i % 60] += 1
 
 
 most_sleepy =  max(guards_sleep_patterns.items(), key=lambda x : sum(x[1].values()))
